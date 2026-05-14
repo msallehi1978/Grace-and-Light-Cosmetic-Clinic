@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;display=swap');</style>
+    <radialGradient id="bg" cx="42%" cy="35%" r="65%">
+      <stop offset="0%"   stop-color="#7DC8FF"/>
+      <stop offset="38%"  stop-color="#3A80FF"/>
+      <stop offset="75%"  stop-color="#1648D8"/>
+      <stop offset="100%" stop-color="#0A2A8A"/>
+    </radialGradient>
+    <radialGradient id="hi" cx="38%" cy="28%" r="48%">
+      <stop offset="0%"   stop-color="#BADDFF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#BADDFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gw">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Black background -->
+  <rect width="400" height="400" fill="#000"/>
+
+  <!-- Outer ring -->
+  <circle cx="200" cy="200" r="185" fill="none" stroke="#071235" stroke-width="7"/>
+
+  <!-- Blue gradient fill -->
+  <circle cx="200" cy="200" r="179" fill="url(#bg)"/>
+
+  <!-- Inner highlight -->
+  <circle cx="200" cy="200" r="179" fill="url(#hi)"/>
+
+  <!-- Inner thin ring -->
+  <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(140,200,255,0.28)" stroke-width="1.5"/>
+
+  <!-- GL monogram -->
+  <text x="196" y="272"
+        font-family="'Pinyon Script', cursive"
+        font-size="238"
+        fill="white"
+        text-anchor="middle"
+        filter="url(#gw)"
+        opacity="0.97">Gl</text>
+
+  <!-- Small heart -->
+  <path d="M203 152 C203 146,209 142,213 146 C217 142,223 146,223 152 C223 158,213 166,213 166 C213 166,203 158,203 152Z"
+        fill="white" opacity="0.93"/>
+</svg>
