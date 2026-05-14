@@ -1,0 +1,47 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4FD3FF"/>
+      <stop offset="100%" stop-color="#0B4DFF"/>
+    </radialGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="512" cy="512" r="430" fill="#2F7BFF" opacity="0.35" filter="url(#glow)"/>
+
+  <circle cx="512" cy="512" r="390" fill="url(#bgGradient)" stroke="#1A4BFF" stroke-width="8"/>
+
+  <path d="M650 250
+           C520 180, 340 250, 340 430
+           C340 600, 500 650, 620 560"
+        stroke="white"
+        stroke-width="38"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+
+  <path d="M580 400
+           C700 420, 700 560, 600 620
+           C540 660, 520 760, 570 820"
+        stroke="white"
+        stroke-width="38"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+
+  <path d="M470 350
+           C450 320, 400 340, 420 390
+           C440 430, 490 450, 512 480
+           C534 450, 584 430, 604 390
+           C624 340, 574 320, 554 350
+           C540 370, 526 388, 512 405
+           C498 388, 484 370, 470 350Z"
+        fill="white"/>
+</svg>
