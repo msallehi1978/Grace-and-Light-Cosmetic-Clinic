@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Grace & Light Cosmetic Clinic Dubai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#C4A26A;--gold-light:#E8D5B0;--gold-pale:#F5EDD8;--ivory:#FAF8F3;--ivory-dim:#F2EDE3;--warm-grey:#8C8279;--warm-grey-lt:#C8C0B6;--dark:#1E1A17;--dark-mid:#3A332C;--white:#FFFFFF;--shadow-soft:0 12px 48px rgba(30,26,23,0.08);--shadow-card:0 4px 24px rgba(30,26,23,0.06);--radius-sm:8px;--radius-md:16px;--radius-lg:24px;--radius-xl:40px;--radius-full:9999px;--transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Open Sans',sans-serif;background:var(--ivory);color:var(--dark);line-height:1.6;overflow-x:hidden;}
+    img{display:block;width:100%;height:100%;object-fit:cover;}
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    .container{max-width:1280px;margin:0 auto;padding:0 40px;}
+    section{padding:100px 0;}
+    .section-label{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+    h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.15;color:var(--dark);}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:14px 32px;border-radius:var(--radius-full);font-family:'Open Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:var(--transition);box-shadow:0 4px 20px rgba(196,162,106,0.35);}
+    .btn-primary:hover{background:#b08d58;transform:translateY(-2px);}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+
+    /* NAVBAR */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,243,0.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(196,162,106,0.2);box-shadow:0 4px 24px rgba(30,26,23,0.06);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 48px;max-width:1400px;margin:0 auto;}
+    .nav-logo{display:flex;flex-direction:row;align-items:center;gap:10px;}
+    .nav-logo-img{width:44px;height:44px;border-radius:50%;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(58,127,255,0.35));}
+    .nav-logo div{display:flex;flex-direction:column;gap:2px;}
+    .nav-logo .name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--dark);line-height:1;}
+    .nav-logo .tagline{font-size:0.6rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);}
+    .nav-links{display:flex;align-items:center;gap:36px;}
+    .nav-links a{font-size:0.82rem;font-weight:500;color:var(--dark-mid);letter-spacing:0.04em;transition:color 0.25s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1.5px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s ease;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{display:flex;align-items:center;gap:16px;}
+    .nav-phone{font-size:0.82rem;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:6px;}
+    .nav-phone .material-symbols-outlined{font-size:16px;color:var(--gold);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--dark);border-radius:2px;}
+    .mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;background:rgba(250,248,243,0.97);backdrop-filter:blur(20px);padding:32px 40px;flex-direction:column;gap:24px;border-bottom:1px solid rgba(196,162,106,0.2);z-index:999;opacity:0;transition:var(--transition);}
+    .mobile-menu.open{display:flex;opacity:1;}
+    .mobile-menu a{font-size:1rem;font-weight:500;color:var(--dark);padding:8px 0;border-bottom:1px solid var(--ivory-dim);}
+
+    /* PAGE BANNER */
+    .page-banner{padding-top:80px;position:relative;height:340px;overflow:hidden;}
+    .page-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .banner-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,26,23,0.72) 0%,rgba(30,26,23,0.4) 100%);}
+    .banner-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 80px;}
+    .banner-content .section-label{color:var(--gold-light);}
+    .banner-content h1{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;color:var(--white);margin-top:8px;}
+    .banner-content p{color:rgba(255,255,255,0.7);margin-top:12px;font-size:1rem;max-width:520px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;}
+    .breadcrumb a,.breadcrumb span{font-size:0.75rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.6);}
+    .breadcrumb a:hover{color:var(--gold-light);}
+    .breadcrumb .sep{color:rgba(255,255,255,0.35);}
+
+    /* STORY */
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .story-img-wrap{position:relative;}
+    .story-img{aspect-ratio:4/5;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-soft);}
+    .story-float{position:absolute;top:48px;left:-32px;background:var(--white);border-radius:var(--radius-md);padding:20px 24px;box-shadow:var(--shadow-soft);}
+    .story-float .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1;}
+    .story-float .lbl{font-size:0.72rem;color:var(--warm-grey);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;}
+    .story-content h2{font-size:clamp(2rem,3vw,2.8rem);font-weight:500;margin-bottom:20px;}
+    .story-content h2 em{font-style:italic;color:var(--gold);}
+    .story-content p{color:var(--warm-grey);line-height:1.8;margin-bottom:16px;}
+    .pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+    .pillar{background:var(--white);border-radius:var(--radius-md);padding:24px;box-shadow:var(--shadow-card);border:1px solid rgba(196,162,106,0.1);}
+    .pillar .material-symbols-outlined{font-size:28px;color:var(--gold);margin-bottom:10px;display:block;font-variation-settings:'FILL' 0,'wght' 300;}
+    .pillar h4{font-family:'Open Sans',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+    .pillar p{font-size:0.82rem;color:var(--warm-grey);line-height:1.6;margin:0;}
+
+    /* STATS BAND */
+    .stats-band{background:var(--dark);padding:64px 0;}
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+    .stat-box{text-align:center;}
+    .stat-box .number{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--gold);line-height:1;}
+    .stat-box .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:8px;}
+
+    /* SPECIALISTS */
+    #specialists-section{background:var(--white);}
+    .specialists-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px;}
+    .specialist-card{background:var(--ivory);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);box-shadow:var(--shadow-card);border:1px solid rgba(196,162,106,0.1);}
+    .specialist-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+    .specialist-img{height:300px;position:relative;overflow:hidden;}
+    .specialist-img img{transition:transform 0.6s ease;}
+    .specialist-card:hover .specialist-img img{transform:scale(1.06);}
+    .specialist-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,26,23,0.6) 0%,transparent 50%);}
+    .specialist-specialty{position:absolute;bottom:16px;left:16px;background:var(--gold);color:var(--white);padding:4px 14px;border-radius:var(--radius-full);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;}
+    .specialist-info{padding:28px;}
+    .specialist-info h3{font-size:1.2rem;font-weight:600;margin-bottom:4px;}
+    .specialist-info .role{font-size:0.8rem;color:var(--warm-grey);margin-bottom:12px;}
+    .specialist-info p{font-size:0.85rem;color:var(--warm-grey);line-height:1.65;}
+
+    /* INSURANCE */
+    .insurance-section{background:var(--ivory-dim);padding:72px 0;}
+    .insurance-inner{display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center;}
+    .insurance-label{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:500;color:var(--dark);}
+    .insurance-logos{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+    .ins-badge{padding:12px 28px;background:var(--white);border:1.5px solid rgba(196,162,106,0.2);border-radius:var(--radius-full);font-size:0.9rem;font-weight:700;color:var(--dark-mid);box-shadow:var(--shadow-card);}
+
+    /* FOOTER */
+    footer{background:var(--dark);color:var(--white);padding:72px 0 32px;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;}
+    .footer-brand .name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;margin-bottom:4px;}
+    .footer-brand .tagline-sm{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+    .footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:300px;margin-bottom:28px;}
+    .footer-social{display:flex;gap:12px;}
+    .footer-social-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:var(--transition);color:rgba(255,255,255,0.6);cursor:pointer;}
+    .footer-social-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .footer-social-btn .material-symbols-outlined{font-size:18px;}
+    .footer-col h5{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+    .footer-col ul{display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;}
+    .footer-col ul li a:hover{color:var(--white);}
+    .footer-bottom{padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.4);}
+    .footer-bottom a{color:rgba(255,255,255,0.6);}
+    .dha-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,162,106,0.15);border:1px solid rgba(196,162,106,0.3);border-radius:var(--radius-full);padding:6px 16px;font-size:0.7rem;font-weight:700;text-transform:uppercase;color:var(--gold-light);}
+    .dha-badge .material-symbols-outlined{font-size:16px;color:var(--gold);}
+    .whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+    .whatsapp-tooltip{background:var(--white);color:var(--dark);padding:10px 16px;border-radius:var(--radius-sm);font-size:0.78rem;font-weight:600;box-shadow:var(--shadow-soft);white-space:nowrap;opacity:0;transform:translateX(10px);transition:var(--transition);pointer-events:none;}
+    .whatsapp-float:hover .whatsapp-tooltip{opacity:1;transform:translateX(0);}
+    .whatsapp-btn{width:62px;height:62px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,0.45);transition:var(--transition);}
+    .whatsapp-btn:hover{transform:scale(1.1);}
+    .whatsapp-btn svg{width:32px;height:32px;}
+    .whatsapp-ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,211,102,0.4);animation:ring 2.5s ease-out infinite;}
+    @keyframes ring{0%{transform:scale(0.9);opacity:1}100%{transform:scale(1.2);opacity:0}}
+
+    @media(max-width:900px){
+      .story-grid{grid-template-columns:1fr;gap:48px;}
+      .story-float{display:none;}
+      .pillars{grid-template-columns:1fr;}
+      .stats-row{grid-template-columns:repeat(2,1fr);}
+      .specialists-grid{grid-template-columns:1fr 1fr;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .banner-content{padding:0 32px;}
+      .nav-links,.nav-phone{display:none;}
+      .hamburger{display:flex;}
+      .nav-cta .btn-primary{display:none;}
+    }
+    @media(max-width:480px){
+      .container{padding:0 20px;}
+      .specialists-grid{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo.svg" alt="Grace & Light" class="nav-logo-img"/>
+      <div><span class="name">Grace &amp; Light</span><span class="tagline">Cosmetic Clinic · Dubai</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html" class="active">About</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:+97143385558" class="nav-phone"><span class="material-symbols-outlined">phone</span>+971 4 338 5558</a>
+      <a href="contact.html" class="btn-primary">Book Consultation</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="treatments.html" onclick="toggleMenu()">Treatments</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<div class="page-banner">
+  <img src="assets/images/clinic-interior.png" alt="About Us"/>
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>About</span></div>
+    <span class="section-label">Our Story</span>
+    <h1>About Grace &amp; Light</h1>
+    <p>A private villa clinic redefining luxury medical aesthetics in the heart of Dubai.</p>
+  </div>
+</div>
+
+<!-- STORY SECTION -->
+<section style="background:var(--ivory);">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img-wrap reveal">
+        <div class="story-img"><img src="assets/images/clinic-interior.png" alt="Clinic Interior"/></div>
+        <div class="story-float"><div class="num">2012</div><div class="lbl">Est. in Dubai</div></div>
+      </div>
+      <div class="reveal">
+        <span class="section-label">Who We Are</span>
+        <h2>A sanctuary of <em>grace</em> and clinical <em>excellence</em></h2>
+        <p>Grace &amp; Light Cosmetic Clinic LLC is Dubai's premier multi-specialty aesthetic and plastic surgery medical centre, nestled in a private villa on Al Wasl Road, Umm Al Sheif. We were founded with a singular vision: to deliver world-class aesthetic medicine with the warmth, discretion, and personal attention that every patient deserves.</p>
+        <p>Our private villa setting is not merely aesthetic — it is a deliberate choice. In a city of grand hospitals and busy clinics, Grace &amp; Light offers something rare: a truly intimate, exclusive experience where your comfort, privacy, and results are the only priorities.</p>
+        <div class="pillars">
+          <div class="pillar"><span class="material-symbols-outlined">verified_user</span><h4>DHA Licensed</h4><p>Fully licensed by Dubai Health Authority — highest safety and ethics standards.</p></div>
+          <div class="pillar"><span class="material-symbols-outlined">local_parking</span><h4>Private Villa</h4><p>Dedicated parking, private entrance, and discreet setting on Al Wasl Road.</p></div>
+          <div class="pillar"><span class="material-symbols-outlined">groups</span><h4>Senior Team</h4><p>Internationally trained physicians led by Dr. Antoine Farah, 30+ years experience.</p></div>
+          <div class="pillar"><span class="material-symbols-outlined">favorite</span><h4>Patient-First</h4><p>Long-term patient relationships built on trust, results, and personalized care.</p></div>
+        </div>
+        <a href="contact.html" class="btn-primary"><span class="material-symbols-outlined" style="font-size:16px">calendar_today</span>Book Your Visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-row reveal">
+      <div class="stat-box"><div class="number">30+</div><div class="label">Years of Surgical Excellence</div></div>
+      <div class="stat-box"><div class="number">5★</div><div class="label">Patient Rating</div></div>
+      <div class="stat-box"><div class="number">4</div><div class="label">Medical Specialties</div></div>
+      <div class="stat-box"><div class="number">4</div><div class="label">Insurance Networks</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SPECIALISTS -->
+<section id="specialists-section" style="background:var(--white);">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto 60px;">
+      <span class="section-label">Our Team</span>
+      <h2 style="font-size:clamp(2rem,3vw,2.8rem);margin-top:4px;">Meet our specialists</h2>
+      <p style="color:var(--warm-grey);margin-top:12px;">Internationally trained clinicians whose long-term relationships with patients speak for themselves.</p>
+    </div>
+    <div class="specialists-grid">
+      <div class="specialist-card reveal">
+        <div class="specialist-img">
+          <img src="assets/images/Botox.jpg" alt="Dr. Antoine Farah"/>
+          <div class="specialist-overlay"></div>
+          <span class="specialist-specialty">Plastic Surgery</span>
+        </div>
+        <div class="specialist-info">
+          <h3>Dr. Antoine Farah</h3>
+          <div class="role">Senior Plastic &amp; Reconstructive Surgeon</div>
+          <p>With over 30 years of international surgical experience, Dr. Farah is a leading authority in rhinoplasty, face lifts, and complex reconstructive procedures — renowned for natural, lasting results and the highest standards of patient safety.</p>
+        </div>
+      </div>
+      <div class="specialist-card reveal">
+        <div class="specialist-img">
+          <img src="assets/images/Profhilo.jpg" alt="Aesthetic Physician"/>
+          <div class="specialist-overlay"></div>
+          <span class="specialist-specialty">Medical Aesthetics</span>
+        </div>
+        <div class="specialist-info">
+          <h3>Aesthetic Medicine Team</h3>
+          <div class="role">Injectable &amp; Skin Specialists</div>
+          <p>Celebrated for their painless injectable technique and exceptional skin-tightening results, our aesthetic physicians build loyal long-term patient relationships based on trust and consistent excellence.</p>
+        </div>
+      </div>
+      <div class="specialist-card reveal">
+        <div class="specialist-img">
+          <img src="assets/images/Laser Treatments.webp" alt="Laser Specialist"/>
+          <div class="specialist-overlay"></div>
+          <span class="specialist-specialty">Laser &amp; Dermatology</span>
+        </div>
+        <div class="specialist-info">
+          <h3>Laser &amp; Dermatology Team</h3>
+          <div class="role">DHA Licensed Dermatologists</div>
+          <p>Specialised in advanced laser technologies for hair reduction, tattoo removal, and medical dermatology — delivering precision results across all skin types with maximum comfort and safety.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE -->
+<div class="insurance-section">
+  <div class="container reveal">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-label">Accepted Insurance</span>
+      <h2 style="font-size:1.8rem;margin-top:4px;">We work with your insurance</h2>
+    </div>
+    <div class="insurance-inner">
+      <span class="ins-badge">Daman</span>
+      <span class="ins-badge">Thiqa</span>
+      <span class="ins-badge">AXA</span>
+      <span class="ins-badge">Cigna</span>
+    </div>
+    <p style="text-align:center;color:var(--warm-grey);font-size:0.85rem;margin-top:24px;">Coverage varies by plan and treatment. Contact us to confirm your specific coverage before your appointment.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <img src="assets/images/logo.svg" alt="Grace & Light" style="width:52px;height:52px;border-radius:50%;flex-shrink:0;filter:drop-shadow(0 0 10px rgba(58,127,255,0.4));object-fit:cover;"/>
+          <div><div class="name">Grace &amp; Light</div><div class="tagline-sm">Cosmetic Clinic · Dubai</div></div>
+        </div>
+        <p>Leading aesthetic, dermatology, and plastic surgery medical center.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/graceandlightclinic" target="_blank" class="footer-social-btn"><span class="material-symbols-outlined">photo_camera</span></a>
+          <a href="https://wa.me/97143385558" target="_blank" class="footer-social-btn"><span class="material-symbols-outlined">chat</span></a>
+          <a href="tel:+97143385558" class="footer-social-btn"><span class="material-symbols-outlined">phone</span></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Facial &amp; Skin</a></li><li><a href="services.html">Plastic Surgery</a></li><li><a href="services.html">Laser &amp; Hair</a></li><li><a href="services.html">Medical Dermatology</a></li></ul></div>
+      <div class="footer-col"><h5>Clinic</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Specialists</a></li><li><a href="treatments.html">Treatments</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Visit Us</h5><ul><li><a href="tel:+97143385558">+971 4 338 5558</a></li><li><a href="https://instagram.com/graceandlightclinic">@graceandlightclinic</a></li><li><a href="contact.html">Villa #3, Al Wasl Rd</a></li><li><a href="contact.html">Umm Al Sheif, Dubai</a></li></ul><div style="margin-top:20px;"><span class="dha-badge"><span class="material-symbols-outlined">verified</span>DHA Licensed</span></div></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Grace &amp; Light Cosmetic Clinic LLC. All rights reserved.</p><p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; Villa #3, Al Wasl Road, Umm Al Sheif, Dubai</p></div>
+  </div>
+</footer>
+
+<div class="whatsapp-float">
+  <div class="whatsapp-tooltip">Chat with us · Make an Appointment</div>
+  <a href="https://wa.me/97143385558?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="whatsapp-btn" style="position:relative;">
+    <div class="whatsapp-ring"></div>
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<script>
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+  const revealEls=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver((e)=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('visible'),i*80);obs.unobserve(el.target);}});},{threshold:0.1});
+  revealEls.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

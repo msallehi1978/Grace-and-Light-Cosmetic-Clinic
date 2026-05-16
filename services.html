@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Grace & Light Cosmetic Clinic Dubai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#C4A26A;--gold-light:#E8D5B0;--gold-pale:#F5EDD8;--ivory:#FAF8F3;--ivory-dim:#F2EDE3;--warm-grey:#8C8279;--warm-grey-lt:#C8C0B6;--dark:#1E1A17;--dark-mid:#3A332C;--white:#FFFFFF;--shadow-soft:0 12px 48px rgba(30,26,23,0.08);--shadow-card:0 4px 24px rgba(30,26,23,0.06);--radius-sm:8px;--radius-md:16px;--radius-lg:24px;--radius-xl:40px;--radius-full:9999px;--transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Open Sans',sans-serif;background:var(--ivory);color:var(--dark);line-height:1.6;overflow-x:hidden;}
+    img{display:block;width:100%;height:100%;object-fit:cover;}
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    .container{max-width:1280px;margin:0 auto;padding:0 40px;}
+    .section-label{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+    h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.15;color:var(--dark);}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:14px 32px;border-radius:var(--radius-full);font-family:'Open Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:var(--transition);box-shadow:0 4px 20px rgba(196,162,106,0.35);}
+    .btn-primary:hover{background:#b08d58;transform:translateY(-2px);}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+
+    /* NAVBAR */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,243,0.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(196,162,106,0.2);box-shadow:0 4px 24px rgba(30,26,23,0.06);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 48px;max-width:1400px;margin:0 auto;}
+    .nav-logo{display:flex;flex-direction:row;align-items:center;gap:10px;}
+    .nav-logo-img{width:44px;height:44px;border-radius:50%;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(58,127,255,0.35));}
+    .nav-logo div{display:flex;flex-direction:column;gap:2px;}
+    .nav-logo .name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--dark);line-height:1;}
+    .nav-logo .tagline{font-size:0.6rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);}
+    .nav-links{display:flex;align-items:center;gap:36px;}
+    .nav-links a{font-size:0.82rem;font-weight:500;color:var(--dark-mid);letter-spacing:0.04em;transition:color 0.25s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1.5px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s ease;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{display:flex;align-items:center;gap:16px;}
+    .nav-phone{font-size:0.82rem;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:6px;}
+    .nav-phone .material-symbols-outlined{font-size:16px;color:var(--gold);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--dark);border-radius:2px;}
+    .mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;background:rgba(250,248,243,0.97);backdrop-filter:blur(20px);padding:32px 40px;flex-direction:column;gap:24px;border-bottom:1px solid rgba(196,162,106,0.2);z-index:999;opacity:0;transition:var(--transition);}
+    .mobile-menu.open{display:flex;opacity:1;}
+    .mobile-menu a{font-size:1rem;font-weight:500;color:var(--dark);padding:8px 0;border-bottom:1px solid var(--ivory-dim);}
+
+    /* PAGE BANNER */
+    .page-banner{padding-top:80px;position:relative;height:340px;overflow:hidden;}
+    .page-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .banner-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,26,23,0.72) 0%,rgba(30,26,23,0.4) 100%);}
+    .banner-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 80px;}
+    .banner-content .section-label{color:var(--gold-light);}
+    .banner-content h1{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;color:var(--white);margin-top:8px;}
+    .banner-content p{color:rgba(255,255,255,0.7);margin-top:12px;font-size:1rem;max-width:520px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;}
+    .breadcrumb a,.breadcrumb span{font-size:0.75rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.6);}
+    .breadcrumb a:hover{color:var(--gold-light);}
+    .breadcrumb .sep{color:rgba(255,255,255,0.35);}
+
+    /* SERVICES PAGE */
+    .services-page{padding:80px 0;}
+    .service-full-card{background:var(--white);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-card);border:1px solid rgba(196,162,106,0.1);margin-bottom:32px;transition:var(--transition);}
+    .service-full-card:hover{box-shadow:var(--shadow-soft);border-color:rgba(196,162,106,0.25);}
+    .sfc-inner{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
+    .sfc-inner.reverse{direction:rtl;}
+    .sfc-inner.reverse>*{direction:ltr;}
+    .sfc-img{height:380px;overflow:hidden;position:relative;}
+    .sfc-img img{transition:transform 0.7s ease;}
+    .service-full-card:hover .sfc-img img{transform:scale(1.06);}
+    .sfc-content{padding:52px 56px;display:flex;flex-direction:column;justify-content:center;}
+    .sfc-icon{width:60px;height:60px;border-radius:14px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;margin-bottom:24px;}
+    .sfc-icon .material-symbols-outlined{font-size:26px;color:var(--gold);font-variation-settings:'FILL' 0,'wght' 300;}
+    .sfc-content h2{font-size:1.9rem;font-weight:600;margin-bottom:12px;}
+    .sfc-content p{color:var(--warm-grey);line-height:1.8;margin-bottom:20px;}
+    .sfc-treatments{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+    .sfc-tag{padding:6px 16px;background:var(--ivory-dim);border-radius:var(--radius-full);font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--dark-mid);}
+    .sfc-tag:first-child{background:var(--gold-pale);color:var(--gold);}
+    .sfc-feature-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+    .sfc-feature{display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--dark-mid);}
+    .sfc-feature .material-symbols-outlined{font-size:18px;color:var(--gold);}
+    .sfc-price{font-family:'Playfair Display',serif;font-size:0.85rem;color:var(--warm-grey);margin-bottom:24px;font-style:italic;}
+
+    /* FOOTER */
+    footer{background:var(--dark);color:var(--white);padding:72px 0 32px;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;}
+    .footer-brand .name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;margin-bottom:4px;}
+    .footer-brand .tagline-sm{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+    .footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:300px;margin-bottom:28px;}
+    .footer-social{display:flex;gap:12px;}
+    .footer-social-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:var(--transition);color:rgba(255,255,255,0.6);cursor:pointer;}
+    .footer-social-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .footer-social-btn .material-symbols-outlined{font-size:18px;}
+    .footer-col h5{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+    .footer-col ul{display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;}
+    .footer-col ul li a:hover{color:var(--white);}
+    .footer-bottom{padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.4);}
+    .footer-bottom a{color:rgba(255,255,255,0.6);}
+    .footer-bottom a:hover{color:var(--gold);}
+    .dha-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,162,106,0.15);border:1px solid rgba(196,162,106,0.3);border-radius:var(--radius-full);padding:6px 16px;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);}
+    .dha-badge .material-symbols-outlined{font-size:16px;color:var(--gold);}
+
+    /* WHATSAPP */
+    .whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+    .whatsapp-tooltip{background:var(--white);color:var(--dark);padding:10px 16px;border-radius:var(--radius-sm);font-size:0.78rem;font-weight:600;box-shadow:var(--shadow-soft);white-space:nowrap;opacity:0;transform:translateX(10px);transition:var(--transition);pointer-events:none;}
+    .whatsapp-float:hover .whatsapp-tooltip{opacity:1;transform:translateX(0);}
+    .whatsapp-btn{width:62px;height:62px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,0.45);transition:var(--transition);}
+    .whatsapp-btn:hover{transform:scale(1.1);}
+    .whatsapp-btn svg{width:32px;height:32px;}
+    .whatsapp-ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,211,102,0.4);animation:ring 2.5s ease-out infinite;}
+    @keyframes ring{0%{transform:scale(0.9);opacity:1}100%{transform:scale(1.2);opacity:0}}
+
+    @media(max-width:900px){
+      .sfc-inner,.sfc-inner.reverse{grid-template-columns:1fr;direction:ltr;}
+      .sfc-img{height:260px;}
+      .sfc-content{padding:36px 32px;}
+      .banner-content{padding:0 32px;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .nav-links,.nav-phone{display:none;}
+      .hamburger{display:flex;}
+      .nav-cta .btn-primary{display:none;}
+    }
+    @media(max-width:480px){
+      .container{padding:0 20px;}
+      .footer-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo.svg" alt="Grace & Light" class="nav-logo-img"/>
+      <div><span class="name">Grace &amp; Light</span><span class="tagline">Cosmetic Clinic · Dubai</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="about.html">About</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:+97143385558" class="nav-phone"><span class="material-symbols-outlined">phone</span>+971 4 338 5558</a>
+      <a href="contact.html" class="btn-primary">Book Consultation</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="treatments.html" onclick="toggleMenu()">Treatments</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <a href="tel:+97143385558" class="btn-primary" style="width:fit-content;margin-top:8px;">+971 4 338 5558</a>
+</div>
+
+<!-- BANNER -->
+<div class="page-banner">
+  <img src="assets/images/clinic-interior.png" alt="Services"/>
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>Services</span></div>
+    <span class="section-label">What We Offer</span>
+    <h1>Our Medical &amp; Aesthetic Services</h1>
+    <p>Comprehensive treatments delivered by board-certified specialists in Dubai's most exclusive villa clinic.</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-page">
+  <div class="container">
+
+    <!-- Facial & Skin -->
+    <div class="service-full-card reveal">
+      <div class="sfc-inner">
+        <div class="sfc-img"><img src="assets/images/Profhilo.jpg" alt="Facial & Skin Rejuvenation"/></div>
+        <div class="sfc-content">
+          <div class="sfc-icon"><span class="material-symbols-outlined">face_retouching_natural</span></div>
+          <h2>Facial &amp; Skin Rejuvenation</h2>
+          <p>Our facial and skin rejuvenation treatments combine the latest medical-grade technologies with the artistry of our expert practitioners. From the celebrated Profhilo bioremodelling to customised chemical peels, each treatment is individually designed to restore luminosity, firmness, and youthful vitality to your skin.</p>
+          <div class="sfc-treatments">
+            <span class="sfc-tag">Profhilo Injections</span>
+            <span class="sfc-tag">Soft Light Facial</span>
+            <span class="sfc-tag">Chemical Peels</span>
+            <span class="sfc-tag">Anti-Aging Therapy</span>
+            <span class="sfc-tag">Skin Boosters</span>
+          </div>
+          <div class="sfc-feature-list">
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Painless injectable technique praised by patients</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Stimulates collagen &amp; elastin production naturally</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>No downtime — return to daily life immediately</div>
+          </div>
+          <p class="sfc-price">Sessions from AED 800 — personalised quotes at consultation</p>
+          <a href="contact.html" class="btn-primary"><span class="material-symbols-outlined" style="font-size:16px">calendar_today</span>Book Consultation</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plastic Surgery -->
+    <div class="service-full-card reveal">
+      <div class="sfc-inner reverse">
+        <div class="sfc-img"><img src="assets/images/Botox.jpg" alt="Plastic Surgery"/></div>
+        <div class="sfc-content">
+          <div class="sfc-icon"><span class="material-symbols-outlined">medical_services</span></div>
+          <h2>Plastic &amp; Reconstructive Surgery</h2>
+          <p>Led by Dr. Antoine Farah — a plastic surgeon with over 30 years of international experience — our surgical division offers world-class procedures with a commitment to natural-looking, transformative results. Every surgical plan is uniquely tailored to your anatomy and aesthetic goals.</p>
+          <div class="sfc-treatments">
+            <span class="sfc-tag">Rhinoplasty</span>
+            <span class="sfc-tag">Face Lift</span>
+            <span class="sfc-tag">Vaser Liposuction</span>
+            <span class="sfc-tag">Tummy Tuck</span>
+            <span class="sfc-tag">Scar Revision</span>
+          </div>
+          <div class="sfc-feature-list">
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Dr. Antoine Farah — 30+ years surgical expertise</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Full pre- and post-operative care in-clinic</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>DHA licensed surgical facility with highest safety standards</div>
+          </div>
+          <p class="sfc-price">Surgical consultations by appointment — pricing discussed in full at consultation</p>
+          <a href="contact.html" class="btn-primary"><span class="material-symbols-outlined" style="font-size:16px">calendar_today</span>Book Consultation</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laser & Hair -->
+    <div class="service-full-card reveal">
+      <div class="sfc-inner">
+        <div class="sfc-img"><img src="assets/images/Laser Treatments.webp" alt="Laser & Hair"/></div>
+        <div class="sfc-content">
+          <div class="sfc-icon"><span class="material-symbols-outlined">flare</span></div>
+          <h2>Laser &amp; Hair Treatments</h2>
+          <p>Using the most advanced laser platforms available, our specialists deliver precision treatments for hair reduction, tattoo removal, and hair restoration. Our laser suite is equipped for all skin types and tones, ensuring safe and effective results for every patient.</p>
+          <div class="sfc-treatments">
+            <span class="sfc-tag">Laser Hair Reduction</span>
+            <span class="sfc-tag">Tattoo Removal</span>
+            <span class="sfc-tag">PRP Hair Restoration</span>
+            <span class="sfc-tag">Scalp Treatments</span>
+          </div>
+          <div class="sfc-feature-list">
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Safe for all skin types including darker skin tones</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>PRP therapy with proven clinical results</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Package sessions available for optimal results</div>
+          </div>
+          <p class="sfc-price">Laser sessions from AED 600 — package discounts available</p>
+          <a href="contact.html" class="btn-primary"><span class="material-symbols-outlined" style="font-size:16px">calendar_today</span>Book Consultation</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medical Dermatology -->
+    <div class="service-full-card reveal">
+      <div class="sfc-inner reverse">
+        <div class="sfc-img"><img src="assets/images/PRP for Hair Growth.webp" alt="Medical Dermatology"/></div>
+        <div class="sfc-content">
+          <div class="sfc-icon"><span class="material-symbols-outlined">health_and_safety</span></div>
+          <h2>Medical Dermatology</h2>
+          <p>Our DHA-licensed dermatologists offer evidence-based medical dermatology services for a wide range of skin conditions. From sclerotherapy for unwanted veins to wart removal and general skin consultations, we combine medical rigour with patient-centred care.</p>
+          <div class="sfc-treatments">
+            <span class="sfc-tag">Sclerotherapy</span>
+            <span class="sfc-tag">Wart Removal</span>
+            <span class="sfc-tag">Skin Tag Removal</span>
+            <span class="sfc-tag">General Dermatology</span>
+          </div>
+          <div class="sfc-feature-list">
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Daman, Thiqa, AXA &amp; Cigna insurance accepted</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Comprehensive skin assessment included</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Same-week appointments usually available</div>
+          </div>
+          <a href="contact.html" class="btn-primary"><span class="material-symbols-outlined" style="font-size:16px">calendar_today</span>Book Consultation</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body Contouring -->
+    <div class="service-full-card reveal">
+      <div class="sfc-inner">
+        <div class="sfc-img"><img src="assets/images/Non-Surgical Double Chin Treatment.jpeg" alt="Body Contouring"/></div>
+        <div class="sfc-content">
+          <div class="sfc-icon"><span class="material-symbols-outlined">self_improvement</span></div>
+          <h2>Body Contouring &amp; Injectables</h2>
+          <p>Achieve your ideal body shape with our advanced contouring treatments — both surgical and non-surgical. From Vaser liposuction and tummy tucks to lip fillers, Botox, and double-chin reduction, our team crafts results that look beautifully natural and feel authentically you.</p>
+          <div class="sfc-treatments">
+            <span class="sfc-tag">Vaser Liposuction</span>
+            <span class="sfc-tag">Tummy Tuck</span>
+            <span class="sfc-tag">Lip Filler</span>
+            <span class="sfc-tag">Botox</span>
+            <span class="sfc-tag">Double Chin</span>
+          </div>
+          <div class="sfc-feature-list">
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Surgical &amp; non-surgical options available</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Premium hyaluronic acid fillers used exclusively</div>
+            <div class="sfc-feature"><span class="material-symbols-outlined">check_circle</span>Natural enhancement philosophy — never overdone</div>
+          </div>
+          <p class="sfc-price">Injectables from AED 900 · Surgical prices at consultation</p>
+          <a href="contact.html" class="btn-primary"><span class="material-symbols-outlined" style="font-size:16px">calendar_today</span>Book Consultation</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <img src="assets/images/logo.svg" alt="Grace & Light" style="width:52px;height:52px;border-radius:50%;flex-shrink:0;filter:drop-shadow(0 0 10px rgba(58,127,255,0.4));object-fit:cover;"/>
+          <div><div class="name">Grace &amp; Light</div><div class="tagline-sm">Cosmetic Clinic · Dubai</div></div>
+        </div>
+        <p>Leading aesthetic, dermatology, and plastic surgery medical center delivering transformative results with grace and clinical precision.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/graceandlightclinic" target="_blank" class="footer-social-btn"><span class="material-symbols-outlined">photo_camera</span></a>
+          <a href="https://wa.me/97143385558" target="_blank" class="footer-social-btn"><span class="material-symbols-outlined">chat</span></a>
+          <a href="tel:+97143385558" class="footer-social-btn"><span class="material-symbols-outlined">phone</span></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Facial &amp; Skin</a></li><li><a href="services.html">Plastic Surgery</a></li><li><a href="services.html">Laser &amp; Hair</a></li><li><a href="services.html">Medical Dermatology</a></li><li><a href="services.html">Body Contouring</a></li></ul></div>
+      <div class="footer-col"><h5>Clinic</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Specialists</a></li><li><a href="treatments.html">Treatments</a></li><li><a href="index.html">Patient Stories</a></li><li><a href="index.html">FAQ</a></li></ul></div>
+      <div class="footer-col"><h5>Visit Us</h5><ul><li><a href="tel:+97143385558">+971 4 338 5558</a></li><li><a href="https://instagram.com/graceandlightclinic">@graceandlightclinic</a></li><li><a href="contact.html">Villa #3, Al Wasl Rd</a></li><li><a href="contact.html">Umm Al Sheif, Dubai</a></li></ul><div style="margin-top:20px;"><span class="dha-badge"><span class="material-symbols-outlined">verified</span>DHA Licensed</span></div></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Grace &amp; Light Cosmetic Clinic LLC. All rights reserved.</p><p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; Villa #3, Al Wasl Road, Umm Al Sheif, Dubai, UAE</p></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<div class="whatsapp-float">
+  <div class="whatsapp-tooltip">Chat with us · Make an Appointment</div>
+  <a href="https://wa.me/97143385558?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="whatsapp-btn" style="position:relative;">
+    <div class="whatsapp-ring"></div>
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<script>
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+  const revealEls=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target);}});},{threshold:0.1});
+  revealEls.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
